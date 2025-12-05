@@ -15,14 +15,14 @@
         <span class="brand-text">GreenSense</span>
       </a>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-
       <nav class="main-nav" id="mainNav" aria-label="Primary navigation">
         <a href="#features">Features</a>
         <a href="#how">How it Works</a>
         <a href="#visual">Gallery</a>
         <a class="cta-link" href="#cta">Sign Up</a>
       </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
     </div>
   </header>
 
@@ -31,7 +31,7 @@
       <div class="container hero-grid">
         <div class="hero-left">
           <h1>Make every planting season smarter</h1>
-          <p class="lead">GreenSense turns everyday purchases and sales into clear, actionable insights so small greenhouse farmers can reduce waste and increase profit.</p>
+          <p class="lead">GreenSense turns purchases and sales into clear, actionable insights so small greenhouse farmers can reduce waste and increase profit.</p>
 
           <div class="hero-cta">
             <a class="btn primary" href="#cta">Start Free Trial</a>
@@ -39,9 +39,9 @@
           </div>
 
           <ul class="benefits">
-            <li><strong>Track costs</strong><span>Simple inputs, clear outputs</span></li>
-            <li><strong>Reduce waste</strong><span>Plan exact crop quantities</span></li>
-            <li><strong>Boost profits</strong><span>See which crops perform best</span></li>
+            <li><strong>Track costs</strong><span>Quick inputs, clear outputs</span></li>
+            <li><strong>Reduce waste</strong><span>Plan exact quantities</span></li>
+            <li><strong>Boost profits</strong><span>Find best crops</span></li>
           </ul>
         </div>
 
@@ -107,7 +107,7 @@
           <div class="step-num">2</div>
           <div class="step-body">
             <h4>AI analysis</h4>
-            <p>Automatic calculations reveal true cost and margins.</p>
+            <p>Automatic calculations reveal cost and margins.</p>
           </div>
         </div>
 
@@ -123,7 +123,7 @@
           <div class="step-num">4</div>
           <div class="step-body">
             <h4>Improve season to season</h4>
-            <p>Use simple reports to plan profit-first crops.</p>
+            <p>Use reports to plan profit-first crops.</p>
           </div>
         </div>
       </div>
@@ -178,8 +178,8 @@
       toggle.setAttribute('aria-expanded', String(!expanded));
       nav.classList.toggle('open');
     });
-    document.addEventListener('click', (e) => {
-      if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 820) {
         nav.classList.remove('open');
         toggle.setAttribute('aria-expanded', 'false');
       }
