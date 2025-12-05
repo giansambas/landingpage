@@ -45,7 +45,32 @@
         </div>
 
         <div class="hero-right">
-          <div class="mockup no-image">Visual Preview Area</div>
+          <div class="carousel" aria-roledescription="carousel" aria-label="GreenSense sample images">
+            <button class="carousel-btn prev" aria-label="Previous image">‹</button>
+
+            <div class="carousel-viewport">
+              <div class="carousel-track">
+                <div class="carousel-item">
+                  <img src="assets/farmer1.jpeg" alt="Farmers planting in a greenhouse" />
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/farmer2.jpeg" alt="Person carrying harvest inside greenhouse" />
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/farmer3.jpeg" alt="Smiling farmer holding a crate of vegetables" />
+                </div>
+              </div>
+            </div>
+
+            <button class="carousel-btn next" aria-label="Next image">›</button>
+
+            <div class="carousel-dots" role="tablist" aria-label="Carousel navigation">
+              <button class="dot" data-index="0" aria-label="Show image 1" aria-selected="true"></button>
+              <button class="dot" data-index="1" aria-label="Show image 2" aria-selected="false"></button>
+              <button class="dot" data-index="2" aria-label="Show image 3" aria-selected="false"></button>
+            </div>
+          </div>
+
           <div class="mockup-badge">Trusted by local growers</div>
         </div>
       </div>
@@ -111,7 +136,7 @@
           <div class="step-num">4</div>
           <div class="step-body">
             <h4>Improve season to season</h4>
-            <p>Use simple reports to plan profit-first crops.</p>
+            <p>Use reports to plan profit-first crops.</p>
           </div>
         </div>
       </div>
@@ -146,9 +171,9 @@
       </div>
 
       <div class="footer-social">
-        <a href="#">🐦</a>
-        <a href="#">📸</a>
-        <a href="#">🔗</a>
+        <a href="#" aria-label="Twitter">🐦</a>
+        <a href="#" aria-label="Instagram">📸</a>
+        <a href="#" aria-label="LinkedIn">🔗</a>
       </div>
     </div>
 
@@ -159,12 +184,85 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // --- simple responsive carousel JS ---
+    (function(){
+      const track = document.querySelector('.carousel-track');
+      const items = Array.from(document.querySelectorAll('.carousel-item'));
+      const prevBtn = document.querySelector('.carousel-btn.prev');
+      const nextBtn = document.querySelector('.carousel-btn.next');
+      const dots = Array.from(document.querySelectorAll('.dot'));
+      let index = 0;
+      let startX = 0;
+      let deltaX = 0;
+
+      function update(){
+        const width = items[0].getBoundingClientRect().width;
+        track.style.transform = `translateX(${-index * width}px)`;
+        dots.forEach((d,i) => {
+          d.classList.toggle('active', i === index);
+          d.setAttribute('aria-selected', String(i === index));
+        });
+      }
+
+      function next(){
+        index = (index + 1) % items.length;
+        update();
+      }
+      function prev(){
+        index = (index - 1 + items.length) % items.length;
+        update();
+      }
+
+      nextBtn.addEventListener('click', next);
+      prevBtn.addEventListener('click', prev);
+
+      dots.forEach(d => {
+        d.addEventListener('click', () => {
+          index = Number(d.dataset.index);
+          update();
+        });
+      });
+
+      // resize handler to keep correct translate value
+      window.addEventListener('resize', update);
+
+      // touch support
+      const viewport = document.querySelector('.carousel-viewport');
+      viewport.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        deltaX = 0;
+      }, {passive: true});
+
+      viewport.addEventListener('touchmove', (e) => {
+        deltaX = e.touches[0].clientX - startX;
+      }, {passive: true});
+
+      viewport.addEventListener('touchend', () => {
+        if (Math.abs(deltaX) > 40) {
+          if (deltaX < 0) next();
+          else prev();
+        }
+        startX = 0;
+        deltaX = 0;
+      });
+
+      // keyboard arrows
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') next();
+        if (e.key === 'ArrowLeft') prev();
+      });
+
+      // initial layout correction (wait for images)
+      window.addEventListener('load', update);
+    })();
+
+    // small mobile menu toggle (keeps previous behaviour)
     const toggle = document.getElementById('menuToggle');
     const nav = document.getElementById('mainNav');
-    toggle.addEventListener('click', () => {
-      const show = nav.classList.contains("open");
-      nav.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", String(!show));
+    toggle && toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
     });
   </script>
 </body>
