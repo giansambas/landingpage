@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>GreenSense — Smart Insights for Small Greenhouse Farmers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,132 +14,139 @@
         <span class="logo">🌱</span>
         <span class="brand-text">GreenSense</span>
       </a>
-      <nav class="main-nav">
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Primary navigation">
         <a href="#features">Features</a>
         <a href="#how">How it Works</a>
-        <a href="#cta">Get Started</a>
+        <a href="#visual">Gallery</a>
+        <a class="cta-link" href="#cta">Sign Up</a>
       </nav>
-      <button class="nav-cta" onclick="location.href='#cta'">Sign Up</button>
     </div>
   </header>
 
   <main>
     <section class="hero" id="home">
       <div class="container hero-grid">
-        <div class="hero-content">
-          <h1>Smart insights for small greenhouse farmers</h1>
-          <p class="lead">
-            Turn daily purchases and sales into clear recommendations — reduce waste,
-            increase profit, and plan smarter seasons without complicated tools.
-          </p>
-          <div class="hero-actions">
-            <a class="btn primary" href="#cta">Try GreenSense — Free</a>
-            <a class="btn ghost" href="#how">How it works</a>
+        <div class="hero-left">
+          <h1>Make every planting season smarter</h1>
+          <p class="lead">GreenSense turns everyday purchases and sales into clear, actionable insights so small greenhouse farmers can reduce waste and increase profit.</p>
+
+          <div class="hero-cta">
+            <a class="btn primary" href="#cta">Start Free Trial</a>
+            <a class="btn ghost" href="#how">See How</a>
           </div>
 
-          <ul class="hero-stats">
-            <li><strong>Save Money</strong><span>Know true cost per crop</span></li>
-            <li><strong>Reduce Waste</strong><span>Avoid overplanting</span></li>
-            <li><strong>Increase Profit</strong><span>See best crops & markets</span></li>
+          <ul class="benefits">
+            <li><strong>Track costs</strong><span>Simple inputs, clear outputs</span></li>
+            <li><strong>Reduce waste</strong><span>Plan exact crop quantities</span></li>
+            <li><strong>Boost profits</strong><span>See which crops perform best</span></li>
           </ul>
         </div>
 
-        <div class="hero-visual">
-          <img src="assets/greenhouse-mockup.jpg" alt="GreenSense dashboard mockup" />
+        <div class="hero-right">
+          <div class="mockup">
+            <img src="assets/greenhouse-mockup.jpg" alt="GreenSense dashboard mockup" />
+          </div>
+          <div class="mockup-badge">Trusted by local growers</div>
         </div>
       </div>
     </section>
 
     <section id="features" class="features container">
       <h2 class="section-title">Key Features</h2>
-      <div class="cards">
+      <div class="cards-grid">
         <article class="card">
-          <div class="card-icon">📊</div>
-          <h3>Transaction Tracking</h3>
-          <p>Log purchases and sales via phone or computer.</p>
+          <div class="icon">📋</div>
+          <h3>Easy Transaction Log</h3>
+          <p>Input purchases and sales quickly from phone or desktop.</p>
         </article>
 
         <article class="card">
-          <div class="card-icon">🧠</div>
-          <h3>AI Insights</h3>
-          <p>Analyze profit per crop and seasonal patterns.</p>
+          <div class="icon">🧮</div>
+          <h3>Automatic Costing</h3>
+          <p>See cost per plant and profit per crop without spreadsheets.</p>
         </article>
 
         <article class="card">
-          <div class="card-icon">🔔</div>
-          <h3>Alerts & Suggestions</h3>
-          <p>Notifications when costs spike or profits drop.</p>
+          <div class="icon">🔔</div>
+          <h3>Smart Alerts</h3>
+          <p>Receive alerts when costs spike or yields drop.</p>
         </article>
 
         <article class="card">
-          <div class="card-icon">📈</div>
-          <h3>Simple Reports</h3>
-          <p>Easy charts and summaries for better decisions.</p>
+          <div class="icon">📈</div>
+          <h3>Actionable Reports</h3>
+          <p>Simple charts that tell you what to plant and when.</p>
         </article>
       </div>
     </section>
 
-    <section class="visual container">
-      <h2 class="section-title">See GreenSense in Action</h2>
-      <div class="visual-grid">
-        <img src="assets/dashboard-1.jpg" alt="GreenSense dashboard" />
-        <img src="assets/dashboard-2.jpg" alt="GreenSense analytics" />
+    <section id="visual" class="visual container">
+      <h2 class="section-title">Product Screenshots</h2>
+      <div class="visual-row">
+        <img src="assets/dashboard-1.jpg" alt="Dashboard showing profitability" />
+        <img src="assets/dashboard-2.jpg" alt="Trends and insights from GreenSense" />
+        <img src="assets/dashboard-3.jpg" alt="Alerts and recommendations panel" />
       </div>
-      <p class="caption">Clean visual reports that guide farmers quickly.</p>
     </section>
 
     <section id="how" class="info container">
-      <h2 class="section-title">How GreenSense Works</h2>
-
-      <div class="process">
-        <div class="step">
-          <div class="step-number">1</div>
+      <h2 class="section-title">How It Works</h2>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-num">1</div>
           <div class="step-body">
-            <h4>Record Transactions</h4>
-            <p>Log seeds, fertilizer, labor, and sales.</p>
+            <h4>Log purchases & sales</h4>
+            <p>Quick entries for seeds, inputs, labor, and sales.</p>
           </div>
         </div>
 
-        <div class="step">
-          <div class="step-number">2</div>
+        <div class="process-step">
+          <div class="step-num">2</div>
           <div class="step-body">
-            <h4>Analyze with AI</h4>
-            <p>System computes profit margins and patterns.</p>
+            <h4>AI analysis</h4>
+            <p>Automatic calculations reveal true cost and margins.</p>
           </div>
         </div>
 
-        <div class="step">
-          <div class="step-number">3</div>
+        <div class="process-step">
+          <div class="step-num">3</div>
           <div class="step-body">
-            <h4>Receive Alerts</h4>
-            <p>Get suggestions when crops underperform.</p>
+            <h4>Get suggestions</h4>
+            <p>Alerts and planting recommendations for better yields.</p>
           </div>
         </div>
 
-        <div class="step">
-          <div class="step-number">4</div>
+        <div class="process-step">
+          <div class="step-num">4</div>
           <div class="step-body">
-            <h4>Act & Improve</h4>
-            <p>Make smarter decisions and boost profit.</p>
+            <h4>Improve season to season</h4>
+            <p>Use simple reports to plan profit-first crops.</p>
           </div>
         </div>
       </div>
     </section>
 
     <section id="cta" class="cta container">
-      <h2>Make smarter farming decisions today</h2>
-      <p class="lead">Start turning transactions into insights.</p>
-      <div class="cta-actions">
-        <a class="btn primary large" href="#">Create Account — It's Free</a>
-        <a class="btn outline" href="#features">Learn More</a>
+      <div class="cta-inner">
+        <div>
+          <h2>Ready to plan better seasons?</h2>
+          <p class="lead">Create your free account and start getting insights in minutes.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn primary large" href="#">Create Account</a>
+          <a class="btn outline" href="mailto:hello@greensense.com">Request Demo</a>
+        </div>
       </div>
-      <p class="small-note">Contact us: <a href="mailto:hello@greensense.com">hello@greensense.com</a></p>
+      <p class="small-note">Questions? Email <a href="mailto:hello@greensense.com">hello@greensense.com</a></p>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <div>
+      <div class="footer-brand">
         <strong>GreenSense</strong>
         <p>Smart insights for greenhouse farms</p>
       </div>
@@ -149,13 +157,10 @@
         <a href="#cta">Sign up</a>
       </div>
 
-      <div class="social">
-        <p>Follow</p>
-        <div class="icons">
-          <span>🐦</span>
-          <span>📸</span>
-          <span>🔗</span>
-        </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Twitter">🐦</a>
+        <a href="#" aria-label="Instagram">📸</a>
+        <a href="#" aria-label="LinkedIn">🔗</a>
       </div>
     </div>
 
@@ -166,6 +171,19 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    const toggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('mainNav');
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
   </script>
 </body>
 </html>
