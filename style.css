@@ -254,17 +254,37 @@ body{
 .footer-grid{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
 .footer-links a{ color:var(--muted); margin-left:12px; text-decoration:none; font-size:0.98rem; }
 .footer-social a{ margin-left:10px; font-size:1.2rem; text-decoration:none; }
-.footer-social a {
-  font-size:1rem;     /* adjust text size */
-  font-weight:600;    /* make them bolder */
-  color:var(--accent-dark);
-  text-decoration:none;
-  margin-left:14px;
+/* make footer social text visible and nicely spaced */
+.footer-social {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: flex-end; /* keeps them at the right side */
+  padding-left: 0;
+  margin-left: 0;
 }
 
-.footer-social a:hover {
-  opacity:0.8;
+.footer-social .social-link {
+  color: var(--accent-dark);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 6px 8px;
+  border-radius: 8px;
+  transition: transform .14s ease, opacity .14s ease;
 }
+
+.footer-social .social-link:hover,
+.footer-social .social-link:focus {
+  text-decoration: none;
+  opacity: 0.9;
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* Debug helper: uncomment to visually find the footer area */
+/* .footer-social { outline: 2px dashed rgba(255,0,0,0.6) } */
+
 
 
 
