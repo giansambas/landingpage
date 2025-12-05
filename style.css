@@ -254,6 +254,22 @@ body{
 .footer-grid{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; }
 .footer-links a{ color:var(--muted); margin-left:12px; text-decoration:none; font-size:0.98rem; }
 .footer-social a{ margin-left:10px; font-size:1.2rem; text-decoration:none; }
+.footer-social a svg {
+  width:26px;
+  height:26px;
+  transition:0.2s ease;
+}
+
+.footer-social a:hover svg {
+  color:var(--accent-dark);
+  transform:translateY(-2px);
+}
+
+.footer-social a svg {
+  width:32px;   /* change this */
+  height:32px;  /* change this */
+}
+
 
 /* responsive */
 @media (max-width:1100px){
