@@ -15,11 +15,10 @@
         <span class="brand-text">GreenSense</span>
       </a>
 
-      <nav class="main-nav" id="mainNav" aria-label="Primary navigation">
+      <nav class="main-nav" id="mainNav">
         <a href="#features">Features</a>
         <a href="#how">How it Works</a>
-        <a href="#visual">Gallery</a>
-        <a class="cta-link" href="#cta">Sign Up</a>
+        <a href="#cta">Sign Up</a>
       </nav>
 
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
@@ -46,9 +45,7 @@
         </div>
 
         <div class="hero-right">
-          <div class="mockup">
-            <img src="assets/greenhouse-mockup.jpg" alt="GreenSense dashboard mockup" />
-          </div>
+          <div class="mockup no-image">Visual Preview Area</div>
           <div class="mockup-badge">Trusted by local growers</div>
         </div>
       </div>
@@ -60,35 +57,26 @@
         <article class="card">
           <div class="icon">📋</div>
           <h3>Easy Transaction Log</h3>
-          <p>Input purchases and sales quickly from phone or desktop.</p>
+          <p>Input purchases and sales quickly from any device.</p>
         </article>
 
         <article class="card">
           <div class="icon">🧮</div>
           <h3>Automatic Costing</h3>
-          <p>See cost per plant and profit per crop without spreadsheets.</p>
+          <p>Track cost per plant and crop profitability instantly.</p>
         </article>
 
         <article class="card">
           <div class="icon">🔔</div>
           <h3>Smart Alerts</h3>
-          <p>Receive alerts when costs spike or yields drop.</p>
+          <p>Get notified of cost spikes or yield changes.</p>
         </article>
 
         <article class="card">
           <div class="icon">📈</div>
           <h3>Actionable Reports</h3>
-          <p>Simple charts that tell you what to plant and when.</p>
+          <p>Easy-to-read charts for better crop planning.</p>
         </article>
-      </div>
-    </section>
-
-    <section id="visual" class="visual container">
-      <h2 class="section-title">Product Screenshots</h2>
-      <div class="visual-row">
-        <img src="assets/dashboard-1.jpg" alt="Dashboard showing profitability" />
-        <img src="assets/dashboard-2.jpg" alt="Trends and insights from GreenSense" />
-        <img src="assets/dashboard-3.jpg" alt="Alerts and recommendations panel" />
       </div>
     </section>
 
@@ -123,7 +111,7 @@
           <div class="step-num">4</div>
           <div class="step-body">
             <h4>Improve season to season</h4>
-            <p>Use reports to plan profit-first crops.</p>
+            <p>Use simple reports to plan profit-first crops.</p>
           </div>
         </div>
       </div>
@@ -133,7 +121,7 @@
       <div class="cta-inner">
         <div>
           <h2>Ready to plan better seasons?</h2>
-          <p class="lead">Create your free account and start getting insights in minutes.</p>
+          <p class="lead">Create your free account and get insights in minutes.</p>
         </div>
         <div class="cta-actions">
           <a class="btn primary large" href="#">Create Account</a>
@@ -158,9 +146,9 @@
       </div>
 
       <div class="footer-social">
-        <a href="#" aria-label="Twitter">🐦</a>
-        <a href="#" aria-label="Instagram">📸</a>
-        <a href="#" aria-label="LinkedIn">🔗</a>
+        <a href="#">🐦</a>
+        <a href="#">📸</a>
+        <a href="#">🔗</a>
       </div>
     </div>
 
@@ -174,15 +162,9 @@
     const toggle = document.getElementById('menuToggle');
     const nav = document.getElementById('mainNav');
     toggle.addEventListener('click', () => {
-      const expanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!expanded));
-      nav.classList.toggle('open');
-    });
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 820) {
-        nav.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
+      const show = nav.classList.contains("open");
+      nav.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(!show));
     });
   </script>
 </body>
